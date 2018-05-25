@@ -1,0 +1,153 @@
+{"trains" : [{
+        "id": "2506",
+        "speed" : 45,
+        "length" : 120,
+        "eat" : "7:0",
+        "est" : "7:0",
+        "pct" : "8:0",
+        "itinerary" : ["IT_R_CD_111_D1D", "IT_R_111_075_KXD"],
+        "shouldStopAt" : ["", ""],
+        "minStopTime" : [0, 0]
+    }, {
+        "id": "2527",
+        "speed" : 50,
+        "length" : 120,
+        "eat" : "7:2",
+        "est" : "7:2",
+        "pct" : "8:2",
+        "itinerary" : ["IT_R_076_112_EX2D", "IT_R_D2D_012_CXD"],
+        "shouldStopAt" : ["", "PLAT:OTT10"],
+        "minStopTime" : [0, 10]
+    }, {
+        "id": "7752",
+        "speed" : 50,
+        "length" : 120,
+        "eat" : "7:5",
+        "est" : "7:5",
+        "pct" : "7:35",
+        "itinerary" : ["IT_R_TR_121_E11R"],
+        "shouldStopAt" : [""],
+        "minStopTime" : [0]
+    }, {
+        "id": "6257",
+        "speed" : 50,
+        "length" : 120,
+        "eat" : "7:6",
+        "est" : "7:6",
+        "pct" : "7:36",
+        "itinerary" : ["IT_R_114_075_KXD"],
+        "shouldStopAt" : [""],
+        "minStopTime" : [0]
+    }, {
+        "id": "6447",
+        "speed" : 50,
+        "length" : 120,
+        "eat" : "7:6",
+        "est" : "7:6",
+        "pct" : "7:36",
+        "itinerary" : ["IT_R_IXR_119_OTT3"],
+        "shouldStopAt" : ["PLAT:OTT3"],
+        "minStopTime" : [8]
+    }, {
+        "id": "7600",
+        "speed" : 50,
+        "length" : 120,
+        "eat" : "7:7",
+        "est" : "7:7",
+        "pct" : "8:7",
+        "itinerary" : ["IT_R_076_111_E1D", "IT_R_D1D_012_CXD"],
+        "shouldStopAt" : ["", ""],
+        "minStopTime" : [0, 0]
+    }, {
+        "id": "42929",
+        "speed" : 50,
+        "length" : 120,
+        "eat" : "7:10",
+        "est" : "7:10",
+        "pct" : "8:10",
+        "itinerary" : ["IT_R_IXR_120_OTT2", "IT_R_E10R_995_TXR"],
+        "shouldStopAt" : ["PLAT:OTT2", ""],
+        "minStopTime" : [8, 0]
+    }, {
+        "id": "3956",
+        "speed" : 50,
+        "length" : 120,
+        "eat" : "7:11",
+        "est" : "7:11",
+        "pct" : "8:11",
+        "itinerary" : ["IT_R_CD_113_OTT9", "IT_R_113_075_KXD"],
+        "shouldStopAt" : ["PLAT:OTT9", ""],
+        "minStopTime" : [8, 0]
+    }, {
+        "id": "5677",
+        "speed" : 50,
+        "length" : 120,
+        "eat" : "7:13",
+        "est" : "7:13",
+        "pct" : "7:43",
+        "itinerary" : ["IT_R_076_114_E4D"],
+        "shouldStopAt" : [""],
+        "minStopTime" : [0]
+    }, {
+        "id": "2427",
+        "speed" : 50,
+        "length" : 120,
+        "eat" : "7:15",
+        "est" : "7:15",
+        "pct" : "8:15",
+        "itinerary" : ["IT_R_076_112_EX2D", "IT_R_D2D_012_CXD"],
+        "shouldStopAt" : ["", "PLAT:OTT10"],
+        "minStopTime" : [0, 5]
+    }, {
+        "id": "2106",
+        "speed" : 50,
+        "length" : 120,
+        "eat" : "7:17",
+        "est" : "7:17",
+        "pct" : "8:17",
+        "itinerary" : ["IT_R_CD_113_OTT9", "IT_R_113_075_KXD"],
+        "shouldStopAt" : ["PLAT:OTT9", ""],
+        "minStopTime" : [5, 0]
+    }, {
+        "id": "6578",
+        "speed" : 50,
+        "length" : 120,
+        "eat" : "7:21",
+        "est" : "7:21",
+        "pct" : "8:21",
+        "itinerary" : ["IT_R_076_112_EX2D", "IT_R_D2D_012_CXD"],
+        "shouldStopAt" : ["", "PLAT:OTT10"],
+        "minStopTime" : [0, 2]
+    }, {
+        "id": "6357",
+        "speed" : 50,
+        "length" : 120,
+        "eat" : "7:22",
+        "est" : "7:22",
+        "pct" : "7:52",
+        "itinerary" : ["IT_R_114_075_KXD"],
+        "shouldStopAt" : [""],
+        "minStopTime" : [0]
+    }, {
+        "id": "4557",
+        "speed" : 50,
+        "length" : 120,
+        "eat" : "7:22",
+        "est" : "7:22",
+        "pct" : "7:52",
+        "itinerary" : ["IT_R_E11R_995_TXR"],
+        "shouldStopAt" : [""],
+        "minStopTime" : [0]
+    }, {
+        "id": "3057",
+        "speed" : 50,
+        "length" : 120,
+        "eat" : "7:22",
+        "est" : "7:22",
+        "pct" : "7:52",
+        "itinerary" : ["IT_R_D9R_140_IXR"],
+        "shouldStopAt" : ["PLAT:OTT3"],
+        "minStopTime" : [10]
+    }
+]
+}
