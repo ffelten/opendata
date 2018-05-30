@@ -12,8 +12,8 @@ Files are detailed below:
 
 * **stn**\_layout.txt: representation of the track layout of station **stn** (text).
 * **stn**\_layout.pdf: track layout of station **stn** (figure).
-* **stn**\_instance_homo\_**x**\_**n**.json: instance n°**n** for an homogeneous traffic of **x** trains based on station **stn**.
-* **stn**\_instance_homo\_**x**\_**n**.bmk: benchmark about the related instance obtained with the model exposed in the thesis.
+* **stn**\_instance_homo\_**x**\_**h**\_**n**.json: instance n°**n** for an homogeneous traffic of **x** trains based on station **stn** with an horizon of **h** minutes.
+* **stn**\_instance_homo\_**x**\_**h**\_**n**.bmk: benchmark about the related instance obtained with the model exposed in the thesis.
 
 ## Resources
 
