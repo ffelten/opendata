@@ -1,0 +1,285 @@
+/***********************************************************************
+* FILENAME : ottignies-wavre_instance_homo_5_30_1.bmk
+*
+* DESCRIPTION :
+*      Present the results and the solution obtained with the CP model for the related instance.
+*
+* NOTE: - The blocks are formatted as follows:
+*           Train + train.id
+*               nth Itinerary + itinerary name ==> start date -- (duration) --> end date
+*               nth stop of the train + min stop time
+*                   Possible route's name ==> (NOT CHOSEN) || start date -- (duration) --> end date
+*                       Element activity name ==> start date -- (duration) --> end date
+*                       ==> tail : Tail or activities related to previous elements ==> start date -- (duration) --> end date
+*               ==> (ON TIME) || (DELAY) (Due time: _ completion time: _)
+*
+*       - The name of the element activities are formatted as follows:
+*           (train id)_(route name)_Resources((Name of resources used))
+*       - The name of the tail activities are formatted as follows:
+*           tail_(train id)_(route name)_Resources((Resources used))
+*       - The name of the previous elements activities (when stopped at signal or platform):
+*           tail_prev_(train id)_(route name)_Stopped_At_(signal or platform's name)-Reources([Resources' names])
+*		- stats have been obtained with IBM CP OPTIMIZER
+*
+* AUTHOR:   Florian Felten, Jérôme Thiry        START DATE : 27/05/18
+*
+* RESOURCE: Florian Felten, Jérôme Thiry. Reducing train delays in a real time context:
+*               A Constraint Programming approach using Conditional-Time Interval variables, 2018.
+*
+* EMAIL: florian.felten@student.uclouvain.be, jerome.thiry@student.uclouvain.be
+*
+**/
+ ! ----------------------------------------------------------------------------
+ ! Minimization problem - 361 variables, 932 constraints
+ ! Presolve      : 262 extractables eliminated
+ ! SearchType           = Restart
+ ! TimeLimit            = 180
+ ! Initial process time : 0.04s (0.04s extraction + 0.00s propagation)
+ !  . Log search space  : 2666.2 (before), 2666.2 (after)
+ !  . Memory usage      : 5.6 MB (before), 5.8 MB (after)
+ !  . Variables fixed   : 37
+ ! Using parallel search with 4 workers.
+ ! ----------------------------------------------------------------------------
+ !          Best Branches  Non-fixed    W       Branch decision
+ *             4       18  0.13s        1            -
+ ! ----------------------------------------------------------------------------
+ ! Search terminated normally, 1 solution found.
+ ! Best objective         : 4 (optimal - effective tol. is 0)
+ ! Number of branches     : 80
+ ! Number of fails        : 40
+ ! Total memory usage     : 20.6 MB (19.9 MB CP Optimizer + 0.8 MB Concert)
+ ! Time spent in solve    : 0.15s (0.09s engine + 0.05s extraction)
+ ! Search speed (br. / s) : 842.1
+ ! ----------------------------------------------------------------------------
+TOTAL DELAY: 4.0 min
+PLATFORM CHANGE DELAY: 0.0 min
+SOLUTION:
+Train 2506
+	Itinerary 2506_IT_R_CD_111_D1D ==> 7:0 -- (26) --> 7:26
+	Should stop at :  for 0
+		Route 2506_R_CD_111_1 ==> 7:0 -- (26) --> 7:26
+			Element 2506_R_CD_111_1_Resources(TCSN:011) ==> 7:0 -- (2) --> 7:2
+			==> tail : tail_2506_R_CD_111_1_Resources(TrackSegment(TCSN:011,100)) 7:2 -- (2) --> 7:4
+			Element 2506_R_CD_111_1_Resources(SRP:CD, SIGN:CD) ==> 7:2 -- (2) --> 7:4
+			==> tail : tail_2506_R_CD_111_1_Resources(TrackSegment(SRP:CD,100)) 7:4 -- (2) --> 7:6
+			Element 2506_R_CD_111_1_Resources(SIGN:CD) ==> 7:4 -- (1) --> 7:5
+			==> tail : tail_sig_2506_R_CD_111_1_Resources(Signal(SIGN:CD)) 7:5 -- (2) --> 7:7
+			==> tail : tail_prev_2506_R_CD_111_1_Stopped_At_SIGN:CD-Reources(SRP:CD, SIGN:CD) 7:6 -- (1) --> 7:7
+			==> tail : tail_prev_2506_R_CD_111_1_Stopped_At_SIGN:CD-Reources(TCSN:011) 7:4 -- (1) --> 7:5
+			Element 2506_R_CD_111_1_Resources(AW:08D, SRP:10D, AW:10D, AW:11D, SRP:17D, SRP:21D, AW:32AD, SRP:32D, AW:32BD, AW:01D, SIGN:D1D) ==> 7:5 -- (2) --> 7:7
+			==> tail : tail_2506_R_CD_111_1_Resources(TrackSegment(AW:08D,100)) 7:7 -- (2) --> 7:9
+			Element 2506_R_CD_111_1_Resources(SRP:10D, AW:10D, AW:11D, SRP:17D, SRP:21D, AW:32AD, SRP:32D, AW:32BD, AW:01D, SIGN:D1D) ==> 7:7 -- (2) --> 7:9
+			==> tail : tail_2506_R_CD_111_1_Resources(TrackSegment(SRP:10D,100)) 7:9 -- (2) --> 7:11
+			Element 2506_R_CD_111_1_Resources(AW:10D, AW:11D, SRP:17D, SRP:21D, AW:32AD, SRP:32D, AW:32BD, AW:01D, SIGN:D1D) ==> 7:9 -- (2) --> 7:11
+			==> tail : tail_2506_R_CD_111_1_Resources(TrackSegment(AW:10D,100)) 7:11 -- (2) --> 7:13
+			Element 2506_R_CD_111_1_Resources(AW:11D, SRP:17D, SRP:21D, AW:32AD, SRP:32D, AW:32BD, AW:01D, SIGN:D1D) ==> 7:11 -- (2) --> 7:13
+			==> tail : tail_2506_R_CD_111_1_Resources(TrackSegment(AW:11D,100)) 7:13 -- (2) --> 7:15
+			Element 2506_R_CD_111_1_Resources(SRP:17D, SRP:21D, AW:32AD, SRP:32D, AW:32BD, AW:01D, SIGN:D1D) ==> 7:13 -- (2) --> 7:15
+			==> tail : tail_2506_R_CD_111_1_Resources(TrackSegment(SRP:17D,100)) 7:15 -- (2) --> 7:17
+			Element 2506_R_CD_111_1_Resources(SRP:21D, AW:32AD, SRP:32D, AW:32BD, AW:01D, SIGN:D1D) ==> 7:15 -- (2) --> 7:17
+			==> tail : tail_2506_R_CD_111_1_Resources(TrackSegment(SRP:21D,100)) 7:17 -- (2) --> 7:19
+			Element 2506_R_CD_111_1_Resources(AW:32AD, SRP:32D, AW:32BD, AW:01D, SIGN:D1D) ==> 7:17 -- (2) --> 7:19
+			==> tail : tail_2506_R_CD_111_1_Resources(TrackSegment(AW:32AD,100)) 7:19 -- (2) --> 7:21
+			Element 2506_R_CD_111_1_Resources(SRP:32D, AW:32BD, AW:01D, SIGN:D1D) ==> 7:19 -- (2) --> 7:21
+			==> tail : tail_2506_R_CD_111_1_Resources(TrackSegment(SRP:32D,100)) 7:21 -- (2) --> 7:23
+			Element 2506_R_CD_111_1_Resources(AW:32BD, AW:01D, SIGN:D1D) ==> 7:21 -- (2) --> 7:23
+			==> tail : tail_2506_R_CD_111_1_Resources(TrackSegment(AW:32BD,100)) 7:23 -- (2) --> 7:25
+			Element 2506_R_CD_111_1_Resources(AW:01D, SIGN:D1D) ==> 7:23 -- (2) --> 7:25
+			==> tail : tail_2506_R_CD_111_1_Resources(TrackSegment(AW:01D,100)) 7:25 -- (2) --> 7:27
+			Element 2506_R_CD_111_1_Resources(SIGN:D1D) ==> 7:25 -- (1) --> 7:26
+			==> tail : tail_sig_2506_R_CD_111_1_Resources(Signal(SIGN:D1D)) 7:26 -- (2) --> 7:28
+			==> tail : tail_prev_2506_R_CD_111_1_Stopped_At_SIGN:D1D-Reources(AW:01D, SIGN:D1D) 7:27 -- (1) --> 7:28
+			==> tail : tail_prev_2506_R_CD_111_1_Stopped_At_SIGN:D1D-Reources(AW:32BD, AW:01D, SIGN:D1D) 7:25 -- (1) --> 7:26
+	Itinerary 2506_IT_R_111_075_KXD ==> 7:26 -- (20) --> 7:46
+	Should stop at :  for 0
+		Route 2506_R_111_075_part ==> 7:26 -- (20) --> 7:46
+			Element 2506_R_111_075_part_Resources(TCSN:111) ==> 7:26 -- (2) --> 7:28
+			==> tail : tail_2506_R_111_075_part_Resources(TrackSegment(TCSN:111,100)) 7:28 -- (2) --> 7:30
+			Element 2506_R_111_075_part_Resources(SRP:E1D, SIGN:E1D) ==> 7:28 -- (2) --> 7:30
+			==> tail : tail_2506_R_111_075_part_Resources(TrackSegment(SRP:E1D,100)) 7:30 -- (2) --> 7:32
+			Element 2506_R_111_075_part_Resources(SIGN:E1D) ==> 7:30 -- (1) --> 7:31
+			==> tail : tail_sig_2506_R_111_075_part_Resources(Signal(SIGN:E1D)) 7:31 -- (2) --> 7:33
+			==> tail : tail_prev_2506_R_111_075_part_Stopped_At_SIGN:E1D-Reources(SRP:E1D, SIGN:E1D) 7:32 -- (1) --> 7:33
+			==> tail : tail_prev_2506_R_111_075_part_Stopped_At_SIGN:E1D-Reources(TCSN:111) 7:30 -- (1) --> 7:31
+			Element 2506_R_111_075_part_Resources(AW:05BD, SRP:04D, AW:60D, AW:63AD, SRP:63D, AW:63BD, AW:64AD, SIGN:KXD) ==> 7:31 -- (2) --> 7:33
+			==> tail : tail_2506_R_111_075_part_Resources(TrackSegment(AW:05BD,100)) 7:33 -- (2) --> 7:35
+			Element 2506_R_111_075_part_Resources(SRP:04D, AW:60D, AW:63AD, SRP:63D, AW:63BD, AW:64AD, SIGN:KXD) ==> 7:33 -- (2) --> 7:35
+			==> tail : tail_2506_R_111_075_part_Resources(TrackSegment(SRP:04D,100)) 7:35 -- (2) --> 7:37
+			Element 2506_R_111_075_part_Resources(AW:60D, AW:63AD, SRP:63D, AW:63BD, AW:64AD, SIGN:KXD) ==> 7:35 -- (2) --> 7:37
+			==> tail : tail_2506_R_111_075_part_Resources(TrackSegment(AW:60D,100)) 7:37 -- (2) --> 7:39
+			Element 2506_R_111_075_part_Resources(AW:63AD, SRP:63D, AW:63BD, AW:64AD, SIGN:KXD) ==> 7:37 -- (2) --> 7:39
+			==> tail : tail_2506_R_111_075_part_Resources(TrackSegment(AW:63AD,100)) 7:39 -- (2) --> 7:41
+			Element 2506_R_111_075_part_Resources(SRP:63D, AW:63BD, AW:64AD, SIGN:KXD) ==> 7:39 -- (2) --> 7:41
+			==> tail : tail_2506_R_111_075_part_Resources(TrackSegment(SRP:63D,100)) 7:41 -- (2) --> 7:43
+			Element 2506_R_111_075_part_Resources(AW:63BD, AW:64AD, SIGN:KXD) ==> 7:41 -- (2) --> 7:43
+			==> tail : tail_2506_R_111_075_part_Resources(TrackSegment(AW:63BD,100)) 7:43 -- (2) --> 7:45
+			Element 2506_R_111_075_part_Resources(AW:64AD, SIGN:KXD) ==> 7:43 -- (2) --> 7:45
+			==> tail : tail_2506_R_111_075_part_Resources(TrackSegment(AW:64AD,100)) 7:45 -- (2) --> 7:47
+			Element 2506_R_111_075_part_Resources(SIGN:KXD) ==> 7:45 -- (1) --> 7:46
+			==> tail : tail_sig_2506_R_111_075_part_Resources(Signal(SIGN:KXD)) 7:46 -- (2) --> 7:48
+			==> tail : tail_prev_2506_R_111_075_part_Stopped_At_SIGN:KXD-Reources(AW:64AD, SIGN:KXD) 7:47 -- (1) --> 7:48
+			==> tail : tail_prev_2506_R_111_075_part_Stopped_At_SIGN:KXD-Reources(AW:63BD, AW:64AD, SIGN:KXD) 7:45 -- (1) --> 7:46
+	==> ON TIME (Due time: 8:0 completion time: 7:46)
+Train 2527
+	Itinerary 2527_IT_R_076_112_EX2D ==> 7:2 -- (14) --> 7:16
+	Should stop at :  for 0
+		Route 2527_R_076_112_part ==> 7:2 -- (14) --> 7:16
+			Element 2527_R_076_112_part_Resources(TCSN:076) ==> 7:2 -- (2) --> 7:4
+			==> tail : tail_2527_R_076_112_part_Resources(TrackSegment(TCSN:076,100)) 7:4 -- (3) --> 7:7
+			Element 2527_R_076_112_part_Resources(SRP:KD, SIGN:KD) ==> 7:4 -- (2) --> 7:6
+			==> tail : tail_2527_R_076_112_part_Resources(TrackSegment(SRP:KD,100)) 7:6 -- (3) --> 7:9
+			Element 2527_R_076_112_part_Resources(SIGN:KD) ==> 7:6 -- (1) --> 7:7
+			==> tail : tail_sig_2527_R_076_112_part_Resources(Signal(SIGN:KD)) 7:7 -- (3) --> 7:10
+			==> tail : tail_prev_2527_R_076_112_part_Stopped_At_SIGN:KD-Reources(SRP:KD, SIGN:KD) 7:9 -- (1) --> 7:10
+			==> tail : tail_prev_2527_R_076_112_part_Stopped_At_SIGN:KD-Reources(TCSN:076) 7:7 -- (0) --> 7:7
+			Element 2527_R_076_112_part_Resources(AW:64BD, SRP:60D, AW:63AD, AW:60D, SIGN:EX2D) ==> 7:7 -- (2) --> 7:9
+			==> tail : tail_2527_R_076_112_part_Resources(TrackSegment(AW:64BD,100)) 7:9 -- (3) --> 7:12
+			Element 2527_R_076_112_part_Resources(SRP:60D, AW:63AD, AW:60D, SIGN:EX2D) ==> 7:9 -- (2) --> 7:11
+			==> tail : tail_2527_R_076_112_part_Resources(TrackSegment(SRP:60D,100)) 7:11 -- (3) --> 7:14
+			Element 2527_R_076_112_part_Resources(AW:63AD, AW:60D, SIGN:EX2D) ==> 7:11 -- (2) --> 7:13
+			==> tail : tail_2527_R_076_112_part_Resources(TrackSegment(AW:63AD,100)) 7:13 -- (3) --> 7:16
+			Element 2527_R_076_112_part_Resources(AW:60D, SIGN:EX2D) ==> 7:13 -- (2) --> 7:15
+			==> tail : tail_2527_R_076_112_part_Resources(TrackSegment(AW:60D,100)) 7:15 -- (3) --> 7:18
+			Element 2527_R_076_112_part_Resources(SIGN:EX2D) ==> 7:15 -- (1) --> 7:16
+			==> tail : tail_sig_2527_R_076_112_part_Resources(Signal(SIGN:EX2D)) 7:16 -- (3) --> 7:19
+			==> tail : tail_prev_2527_R_076_112_part_Stopped_At_SIGN:EX2D-Reources(AW:60D, SIGN:EX2D) 7:18 -- (1) --> 7:19
+			==> tail : tail_prev_2527_R_076_112_part_Stopped_At_SIGN:EX2D-Reources(AW:63AD, AW:60D, SIGN:EX2D) 7:16 -- (0) --> 7:16
+	Itinerary 2527_IT_R_D2D_012_CXD ==> 7:16 -- (42) --> 7:58
+	Should stop at : PLAT:OTT10 for 10
+		Route 2527_R_D2D_012_2 ==> 7:16 -- (42) --> 7:58
+			Element 2527_R_D2D_012_2_Resources(TCSN:112) ==> 7:16 -- (2) --> 7:18
+			==> tail : tail_2527_R_D2D_012_2_Resources(TrackSegment(TCSN:112,100)) 7:18 -- (3) --> 7:21
+			Element 2527_R_D2D_012_2_Resources(SRP:D2D, PLAT:OTT10) ==> 7:18 -- (2) --> 7:20
+			==> tail : tail_2527_R_D2D_012_2_Resources(TrackSegment(SRP:D2D,100)) 7:20 -- (3) --> 7:23
+			Element 2527_R_D2D_012_2_Resources(PLAT:OTT10) ==> 7:20 -- (11) --> 7:31
+			==> tail : tail_sig_2527_R_D2D_012_2_Resources(Platform(PLAT:OTT10)) 7:31 -- (3) --> 7:34
+			==> tail : tail_prev_2527_R_D2D_012_2_Stopped_At_PLAT:OTT10-Reources(SRP:D2D, PLAT:OTT10) 7:23 -- (11) --> 7:34
+			==> tail : tail_prev_2527_R_D2D_012_2_Stopped_At_PLAT:OTT10-Reources(TCSN:112) 7:21 -- (10) --> 7:31
+			Element 2527_R_D2D_012_2_Resources(AW:24D, SRP:36D, SRP:37D, AW:37D, AW:38D, SRP:35D, AW:69D, SRP:14D, AW:14D, AW:13D, SRP:11D, AW:11D, AW:10D, SIGN:CXD) ==> 7:31 -- (2) --> 7:33
+			==> tail : tail_2527_R_D2D_012_2_Resources(TrackSegment(AW:24D,100)) 7:33 -- (3) --> 7:36
+			Element 2527_R_D2D_012_2_Resources(SRP:36D, SRP:37D, AW:37D, AW:38D, SRP:35D, AW:69D, SRP:14D, AW:14D, AW:13D, SRP:11D, AW:11D, AW:10D, SIGN:CXD) ==> 7:33 -- (2) --> 7:35
+			==> tail : tail_2527_R_D2D_012_2_Resources(TrackSegment(SRP:36D,100)) 7:35 -- (3) --> 7:38
+			Element 2527_R_D2D_012_2_Resources(SRP:37D, AW:37D, AW:38D, SRP:35D, AW:69D, SRP:14D, AW:14D, AW:13D, SRP:11D, AW:11D, AW:10D, SIGN:CXD) ==> 7:35 -- (2) --> 7:37
+			==> tail : tail_2527_R_D2D_012_2_Resources(TrackSegment(SRP:37D,100)) 7:37 -- (3) --> 7:40
+			Element 2527_R_D2D_012_2_Resources(AW:37D, AW:38D, SRP:35D, AW:69D, SRP:14D, AW:14D, AW:13D, SRP:11D, AW:11D, AW:10D, SIGN:CXD) ==> 7:37 -- (2) --> 7:39
+			==> tail : tail_2527_R_D2D_012_2_Resources(TrackSegment(AW:37D,100)) 7:39 -- (3) --> 7:42
+			Element 2527_R_D2D_012_2_Resources(AW:38D, SRP:35D, AW:69D, SRP:14D, AW:14D, AW:13D, SRP:11D, AW:11D, AW:10D, SIGN:CXD) ==> 7:39 -- (2) --> 7:41
+			==> tail : tail_2527_R_D2D_012_2_Resources(TrackSegment(AW:38D,100)) 7:41 -- (3) --> 7:44
+			Element 2527_R_D2D_012_2_Resources(SRP:35D, AW:69D, SRP:14D, AW:14D, AW:13D, SRP:11D, AW:11D, AW:10D, SIGN:CXD) ==> 7:41 -- (2) --> 7:43
+			==> tail : tail_2527_R_D2D_012_2_Resources(TrackSegment(SRP:35D,100)) 7:43 -- (3) --> 7:46
+			Element 2527_R_D2D_012_2_Resources(AW:69D, SRP:14D, AW:14D, AW:13D, SRP:11D, AW:11D, AW:10D, SIGN:CXD) ==> 7:43 -- (2) --> 7:45
+			==> tail : tail_2527_R_D2D_012_2_Resources(TrackSegment(AW:69D,100)) 7:45 -- (3) --> 7:48
+			Element 2527_R_D2D_012_2_Resources(SRP:14D, AW:14D, AW:13D, SRP:11D, AW:11D, AW:10D, SIGN:CXD) ==> 7:45 -- (2) --> 7:47
+			==> tail : tail_2527_R_D2D_012_2_Resources(TrackSegment(SRP:14D,100)) 7:47 -- (3) --> 7:50
+			Element 2527_R_D2D_012_2_Resources(AW:14D, AW:13D, SRP:11D, AW:11D, AW:10D, SIGN:CXD) ==> 7:47 -- (2) --> 7:49
+			==> tail : tail_2527_R_D2D_012_2_Resources(TrackSegment(AW:14D,100)) 7:49 -- (3) --> 7:52
+			Element 2527_R_D2D_012_2_Resources(AW:13D, SRP:11D, AW:11D, AW:10D, SIGN:CXD) ==> 7:49 -- (2) --> 7:51
+			==> tail : tail_2527_R_D2D_012_2_Resources(TrackSegment(AW:13D,100)) 7:51 -- (3) --> 7:54
+			Element 2527_R_D2D_012_2_Resources(SRP:11D, AW:11D, AW:10D, SIGN:CXD) ==> 7:51 -- (2) --> 7:53
+			==> tail : tail_2527_R_D2D_012_2_Resources(TrackSegment(SRP:11D,100)) 7:53 -- (3) --> 7:56
+			Element 2527_R_D2D_012_2_Resources(AW:11D, AW:10D, SIGN:CXD) ==> 7:53 -- (2) --> 7:55
+			==> tail : tail_2527_R_D2D_012_2_Resources(TrackSegment(AW:11D,100)) 7:55 -- (3) --> 7:58
+			Element 2527_R_D2D_012_2_Resources(AW:10D, SIGN:CXD) ==> 7:55 -- (2) --> 7:57
+			==> tail : tail_2527_R_D2D_012_2_Resources(TrackSegment(AW:10D,100)) 7:57 -- (3) --> 8:0
+			Element 2527_R_D2D_012_2_Resources(SIGN:CXD) ==> 7:57 -- (1) --> 7:58
+			==> tail : tail_sig_2527_R_D2D_012_2_Resources(Signal(SIGN:CXD)) 7:58 -- (3) --> 8:1
+			==> tail : tail_prev_2527_R_D2D_012_2_Stopped_At_SIGN:CXD-Reources(AW:10D, SIGN:CXD) 8:0 -- (1) --> 8:1
+			==> tail : tail_prev_2527_R_D2D_012_2_Stopped_At_SIGN:CXD-Reources(AW:11D, AW:10D, SIGN:CXD) 7:58 -- (0) --> 7:58
+		Route 2527_R_D2D_012_1 ==> NOT CHOSEN
+	==> ON TIME (Due time: 8:2 completion time: 7:58)
+Train 7752
+	Itinerary 7752_IT_R_TR_121_E11R ==> 7:5 -- (20) --> 7:25
+	Should stop at :  for 0
+		Route 7752_R_TR_121_part ==> 7:5 -- (20) --> 7:25
+			Element 7752_R_TR_121_part_Resources(TCSN:996) ==> 7:5 -- (2) --> 7:7
+			==> tail : tail_7752_R_TR_121_part_Resources(TrackSegment(TCSN:996,100)) 7:7 -- (3) --> 7:10
+			Element 7752_R_TR_121_part_Resources(SRP:TR, SIGN:TR) ==> 7:7 -- (2) --> 7:9
+			==> tail : tail_7752_R_TR_121_part_Resources(TrackSegment(SRP:TR,100)) 7:9 -- (3) --> 7:12
+			Element 7752_R_TR_121_part_Resources(SIGN:TR) ==> 7:9 -- (1) --> 7:10
+			==> tail : tail_sig_7752_R_TR_121_part_Resources(Signal(SIGN:TR)) 7:10 -- (3) --> 7:13
+			==> tail : tail_prev_7752_R_TR_121_part_Stopped_At_SIGN:TR-Reources(SRP:TR, SIGN:TR) 7:12 -- (1) --> 7:13
+			==> tail : tail_prev_7752_R_TR_121_part_Stopped_At_SIGN:TR-Reources(TCSN:996) 7:10 -- (0) --> 7:10
+			Element 7752_R_TR_121_part_Resources(AW:19BR, SRP:19R, AW:19AR, AW:18R, SRP:18RL, AW:16BR, SRP:21R, SIGN:E11R) ==> 7:10 -- (2) --> 7:12
+			==> tail : tail_7752_R_TR_121_part_Resources(TrackSegment(AW:19BR,100)) 7:12 -- (3) --> 7:15
+			Element 7752_R_TR_121_part_Resources(SRP:19R, AW:19AR, AW:18R, SRP:18RL, AW:16BR, SRP:21R, SIGN:E11R) ==> 7:12 -- (2) --> 7:14
+			==> tail : tail_7752_R_TR_121_part_Resources(TrackSegment(SRP:19R,100)) 7:14 -- (3) --> 7:17
+			Element 7752_R_TR_121_part_Resources(AW:19AR, AW:18R, SRP:18RL, AW:16BR, SRP:21R, SIGN:E11R) ==> 7:14 -- (2) --> 7:16
+			==> tail : tail_7752_R_TR_121_part_Resources(TrackSegment(AW:19AR,100)) 7:16 -- (3) --> 7:19
+			Element 7752_R_TR_121_part_Resources(AW:18R, SRP:18RL, AW:16BR, SRP:21R, SIGN:E11R) ==> 7:16 -- (2) --> 7:18
+			==> tail : tail_7752_R_TR_121_part_Resources(TrackSegment(AW:18R,100)) 7:18 -- (3) --> 7:21
+			Element 7752_R_TR_121_part_Resources(SRP:18RL, AW:16BR, SRP:21R, SIGN:E11R) ==> 7:18 -- (2) --> 7:20
+			==> tail : tail_7752_R_TR_121_part_Resources(TrackSegment(SRP:18RL,100)) 7:20 -- (3) --> 7:23
+			Element 7752_R_TR_121_part_Resources(AW:16BR, SRP:21R, SIGN:E11R) ==> 7:20 -- (2) --> 7:22
+			==> tail : tail_7752_R_TR_121_part_Resources(TrackSegment(AW:16BR,100)) 7:22 -- (3) --> 7:25
+			Element 7752_R_TR_121_part_Resources(SRP:21R, SIGN:E11R) ==> 7:22 -- (2) --> 7:24
+			==> tail : tail_7752_R_TR_121_part_Resources(TrackSegment(SRP:21R,100)) 7:24 -- (3) --> 7:27
+			Element 7752_R_TR_121_part_Resources(SIGN:E11R) ==> 7:24 -- (1) --> 7:25
+			==> tail : tail_sig_7752_R_TR_121_part_Resources(Signal(SIGN:E11R)) 7:25 -- (3) --> 7:28
+			==> tail : tail_prev_7752_R_TR_121_part_Stopped_At_SIGN:E11R-Reources(SRP:21R, SIGN:E11R) 7:27 -- (1) --> 7:28
+			==> tail : tail_prev_7752_R_TR_121_part_Stopped_At_SIGN:E11R-Reources(AW:16BR, SRP:21R, SIGN:E11R) 7:25 -- (0) --> 7:25
+	==> ON TIME (Due time: 7:35 completion time: 7:25)
+Train 6257
+	Itinerary 6257_IT_R_114_075_KXD ==> 7:6 -- (14) --> 7:20
+	Should stop at :  for 0
+		Route 6257_R_114_075_part ==> 7:6 -- (14) --> 7:20
+			Element 6257_R_114_075_part_Resources(TCSN:114) ==> 7:6 -- (2) --> 7:8
+			==> tail : tail_6257_R_114_075_part_Resources(TrackSegment(TCSN:114,100)) 7:8 -- (3) --> 7:11
+			Element 6257_R_114_075_part_Resources(SRP:E4D, SIGN:E4D) ==> 7:8 -- (2) --> 7:10
+			==> tail : tail_6257_R_114_075_part_Resources(TrackSegment(SRP:E4D,100)) 7:10 -- (3) --> 7:13
+			Element 6257_R_114_075_part_Resources(SIGN:E4D) ==> 7:10 -- (1) --> 7:11
+			==> tail : tail_sig_6257_R_114_075_part_Resources(Signal(SIGN:E4D)) 7:11 -- (3) --> 7:14
+			==> tail : tail_prev_6257_R_114_075_part_Stopped_At_SIGN:E4D-Reources(SRP:E4D, SIGN:E4D) 7:13 -- (1) --> 7:14
+			==> tail : tail_prev_6257_R_114_075_part_Stopped_At_SIGN:E4D-Reources(TCSN:114) 7:11 -- (0) --> 7:11
+			Element 6257_R_114_075_part_Resources(AW:61D, AW:62D, AW:63BD, AW:64AD, SIGN:KXD) ==> 7:11 -- (2) --> 7:13
+			==> tail : tail_6257_R_114_075_part_Resources(TrackSegment(AW:61D,100)) 7:13 -- (3) --> 7:16
+			Element 6257_R_114_075_part_Resources(AW:62D, AW:63BD, AW:64AD, SIGN:KXD) ==> 7:13 -- (2) --> 7:15
+			==> tail : tail_6257_R_114_075_part_Resources(TrackSegment(AW:62D,100)) 7:15 -- (3) --> 7:18
+			Element 6257_R_114_075_part_Resources(AW:63BD, AW:64AD, SIGN:KXD) ==> 7:15 -- (2) --> 7:17
+			==> tail : tail_6257_R_114_075_part_Resources(TrackSegment(AW:63BD,100)) 7:17 -- (3) --> 7:20
+			Element 6257_R_114_075_part_Resources(AW:64AD, SIGN:KXD) ==> 7:17 -- (2) --> 7:19
+			==> tail : tail_6257_R_114_075_part_Resources(TrackSegment(AW:64AD,100)) 7:19 -- (3) --> 7:22
+			Element 6257_R_114_075_part_Resources(SIGN:KXD) ==> 7:19 -- (1) --> 7:20
+			==> tail : tail_sig_6257_R_114_075_part_Resources(Signal(SIGN:KXD)) 7:20 -- (3) --> 7:23
+			==> tail : tail_prev_6257_R_114_075_part_Stopped_At_SIGN:KXD-Reources(AW:64AD, SIGN:KXD) 7:22 -- (1) --> 7:23
+			==> tail : tail_prev_6257_R_114_075_part_Stopped_At_SIGN:KXD-Reources(AW:63BD, AW:64AD, SIGN:KXD) 7:20 -- (0) --> 7:20
+	==> ON TIME (Due time: 7:36 completion time: 7:20)
+Train 6447
+	Itinerary 6447_IT_R_IXR_119_OTT3 ==> 7:6 -- (34) --> 7:40
+	Should stop at : PLAT:OTT3 for 8
+		Route 6447_R_IXR_119_2 ==> 7:6 -- (34) --> 7:40
+			Element 6447_R_IXR_119_2_Resources(TCSN:140) ==> 7:6 -- (2) --> 7:8
+			==> tail : tail_6447_R_IXR_119_2_Resources(TrackSegment(TCSN:140,100)) 7:8 -- (3) --> 7:11
+			Element 6447_R_IXR_119_2_Resources(SRP:IXR, SIGN:IXR) ==> 7:8 -- (2) --> 7:10
+			==> tail : tail_6447_R_IXR_119_2_Resources(TrackSegment(SRP:IXR,100)) 7:10 -- (3) --> 7:13
+			Element 6447_R_IXR_119_2_Resources(SIGN:IXR) ==> 7:10 -- (1) --> 7:11
+			==> tail : tail_sig_6447_R_IXR_119_2_Resources(Signal(SIGN:IXR)) 7:11 -- (3) --> 7:14
+			==> tail : tail_prev_6447_R_IXR_119_2_Stopped_At_SIGN:IXR-Reources(SRP:IXR, SIGN:IXR) 7:13 -- (1) --> 7:14
+			==> tail : tail_prev_6447_R_IXR_119_2_Stopped_At_SIGN:IXR-Reources(TCSN:140) 7:11 -- (0) --> 7:11
+			Element 6447_R_IXR_119_2_Resources(AW:07AR, SRP:11R, AW:09BR, AW:12R, SRP:12R, AW:49R, AW:14R, AW:13AR, SRP:15R, AW:15R, PLAT:OTT3) ==> 7:11 -- (2) --> 7:13
+			==> tail : tail_6447_R_IXR_119_2_Resources(TrackSegment(AW:07AR,100)) 7:13 -- (3) --> 7:16
+			Element 6447_R_IXR_119_2_Resources(SRP:11R, AW:09BR, AW:12R, SRP:12R, AW:49R, AW:14R, AW:13AR, SRP:15R, AW:15R, PLAT:OTT3) ==> 7:13 -- (2) --> 7:15
+			==> tail : tail_6447_R_IXR_119_2_Resources(TrackSegment(SRP:11R,100)) 7:15 -- (3) --> 7:18
+			Element 6447_R_IXR_119_2_Resources(AW:09BR, AW:12R, SRP:12R, AW:49R, AW:14R, AW:13AR, SRP:15R, AW:15R, PLAT:OTT3) ==> 7:15 -- (2) --> 7:17
+			==> tail : tail_6447_R_IXR_119_2_Resources(TrackSegment(AW:09BR,100)) 7:17 -- (3) --> 7:20
+			Element 6447_R_IXR_119_2_Resources(AW:12R, SRP:12R, AW:49R, AW:14R, AW:13AR, SRP:15R, AW:15R, PLAT:OTT3) ==> 7:17 -- (2) --> 7:19
+			==> tail : tail_6447_R_IXR_119_2_Resources(TrackSegment(AW:12R,100)) 7:19 -- (3) --> 7:22
+			Element 6447_R_IXR_119_2_Resources(SRP:12R, AW:49R, AW:14R, AW:13AR, SRP:15R, AW:15R, PLAT:OTT3) ==> 7:19 -- (2) --> 7:21
+			==> tail : tail_6447_R_IXR_119_2_Resources(TrackSegment(SRP:12R,100)) 7:21 -- (3) --> 7:24
+			Element 6447_R_IXR_119_2_Resources(AW:49R, AW:14R, AW:13AR, SRP:15R, AW:15R, PLAT:OTT3) ==> 7:21 -- (2) --> 7:23
+			==> tail : tail_6447_R_IXR_119_2_Resources(TrackSegment(AW:49R,100)) 7:23 -- (3) --> 7:26
+			Element 6447_R_IXR_119_2_Resources(AW:14R, AW:13AR, SRP:15R, AW:15R, PLAT:OTT3) ==> 7:23 -- (2) --> 7:25
+			==> tail : tail_6447_R_IXR_119_2_Resources(TrackSegment(AW:14R,100)) 7:25 -- (3) --> 7:28
+			Element 6447_R_IXR_119_2_Resources(AW:13AR, SRP:15R, AW:15R, PLAT:OTT3) ==> 7:25 -- (2) --> 7:27
+			==> tail : tail_6447_R_IXR_119_2_Resources(TrackSegment(AW:13AR,100)) 7:27 -- (3) --> 7:30
+			Element 6447_R_IXR_119_2_Resources(SRP:15R, AW:15R, PLAT:OTT3) ==> 7:27 -- (2) --> 7:29
+			==> tail : tail_6447_R_IXR_119_2_Resources(TrackSegment(SRP:15R,100)) 7:29 -- (3) --> 7:32
+			Element 6447_R_IXR_119_2_Resources(AW:15R, PLAT:OTT3) ==> 7:29 -- (2) --> 7:31
+			==> tail : tail_6447_R_IXR_119_2_Resources(TrackSegment(AW:15R,100)) 7:31 -- (3) --> 7:34
+			Element 6447_R_IXR_119_2_Resources(PLAT:OTT3) ==> 7:31 -- (9) --> 7:40
+			==> tail : tail_sig_6447_R_IXR_119_2_Resources(Platform(PLAT:OTT3)) 7:40 -- (3) --> 7:43
+			==> tail : tail_prev_6447_R_IXR_119_2_Stopped_At_PLAT:OTT3-Reources(AW:15R, PLAT:OTT3) 7:34 -- (9) --> 7:43
+			==> tail : tail_prev_6447_R_IXR_119_2_Stopped_At_PLAT:OTT3-Reources(SRP:15R, AW:15R, PLAT:OTT3) 7:32 -- (8) --> 7:40
+		Route 6447_R_IXR_119_1 ==> NOT CHOSEN
+	==> DELAY : 4 min (Due time: 7:36 completion time: 7:40)
+
+Process finished with exit code 0
