@@ -1,3 +1,22 @@
+/***********************************************************************
+* FILENAME : ottignies-wavre_layout.txt      
+*
+* DESCRIPTION :
+*      enumerate the components of the stations of Ottignies and Wavre :
+*			* Tracksegment: [TRACKSEGMENT] <name> <length>
+*			* Signal: [TRACKSEGMENT] <name> -1
+*			* Platform: [PLATFORM] <name> -1
+*			* Route: [ROUTE] <name> [List of components requested after each train movement]
+*			* Itinerary: [ITINERARY] <name> <first track segment> <last track segment> [List of alternative route]
+* RESOURCE: Florian Felten and Jérôme Thiry. Reducing train delays in a real time context: A Constraint Programming Approach using Conditional-Time Interval variables, 2018.
+*
+* NOTE: Track lengths are not realistically dimensioned (data missing)
+
+* AUTHOR:   Florian Felten, Jérôme Thiry       START DATE : 18/05/18  
+* EMAIL: florian.felten@student.uclouvain.be, jerome.thiry@student.uclouvain.be
+*
+**/
+
 [TRACKSEGMENT] TCSN:301 100
 [TRACKSEGMENT] TCSN:302 100
 [TRACKSEGMENT] TCSN:303 100
